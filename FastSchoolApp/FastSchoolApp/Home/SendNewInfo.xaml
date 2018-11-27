@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FastSchoolApp.Home.SendNewInfo">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid 
+                Margin="10"
+                HorizontalOptions="FillAndExpand"
+                  VerticalOptions="FillAndExpand" 
+                Padding="15">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Text="收货人姓名：" />
+                <Entry Placeholder="请输入收货人姓名" 
+                       Keyboard="Text" 
+                       Grid.Column="1" 
+                       Grid.Row="0"
+                       x:Name="txtUserName" />
+
+                <Label Text="快递类型：" 
+                       Grid.Column="0" 
+                       Grid.Row="1" />
+                <Picker x:Name="txtExpressTypePicker" 
+                        Title="请选择快递类型" 
+                        SelectedIndexChanged="TxtExpressTypePicker_SelectedIndexChanged"
+                        Grid.Column="1" 
+                        Grid.Row="1">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>EMS</x:String>
+                            <x:String>邮政包裹</x:String>
+                            <x:String>申通快递</x:String>
+                            <x:String>顺丰快递</x:String>
+                            <x:String>圆通快递</x:String>
+                            <x:String>韵达快递</x:String>
+                            <x:String>中通快递</x:String>
+                            <x:String>天天快递</x:String>
+                            <x:String>汇通快递</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <Label Text="取货码：" 
+                       Grid.Column="0" 
+                       Grid.Row="2" />
+                <Entry 
+                    Placeholder="请输入12位以内有效的取货码" 
+                    Keyboard="Numeric"
+                    Grid.Column="1"
+                    Grid.Row="2"
+                    x:Name="txtCode" />
+
+                <Label Text="取货地点：" 
+                       Grid.Column="0" 
+                       Grid.Row="3" />
+                <Entry Placeholder="请输入详细取货地点" 
+                    Keyboard="Text"
+                    Grid.Column="1"
+                    Grid.Row="3"
+                    x:Name="txtGetAddress" />
+
+                <Label Text="配送地址："
+                       Grid.Column="0" 
+                       Grid.Row="4" />
+                <Entry Placeholder="请输入详细配送地址" 
+                       Keyboard="Text" 
+                       Grid.Column="1" Grid.Row="4"
+                       x:Name="txtSendAddress" />
+
+                <Label Text="悬赏金额："
+                       Grid.Column="0" 
+                       Grid.Row="5" />
+                <Entry Placeholder="请输入悬赏金额" 
+                    Keyboard="Numeric" 
+                       Grid.Column="1"
+                    Grid.Row="5"
+                    x:Name="txtMoney" />
+
+                <Label Text="备注："
+                       Grid.Column="0"
+                       Grid.Row="6" />
+                <Editor AutoSize="TextChanges"                         
+                        Grid.Column="1" 
+                        Grid.Row="6"
+                        x:Name="txtRemarks" />
+
+                <Label Text="注意：请填写正确的信息，以免造成不必要的麻烦！" 
+                       TextColor="red" 
+                       Grid.ColumnSpan="2" 
+                       Grid.Row="7" 
+                       FontSize="22" 
+                       FontAttributes="Bold" />
+            </Grid>
+            <Button Text="发布"
+                x:Name="sendNewInfo" 
+                Clicked="sendNewInfo_Clicked"
+               Style="{StaticResource ButtonStyle}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

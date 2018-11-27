@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FastSchoolApp.Home.HomeMasterDetailPageMaster"
+               xmlns:local="using:FastSchoolApp.Home"
+               xmlns:user="using:FastSchoolApp.User"
+             xmlns:pages="clr-namespace:FastSchoolApp.Home"
+              Padding="0,0,0,0"
+             Icon="hamburger.png"
+             xmlns:userModel="clr-namespace:FastSchoolApp.ViewModel"
+             Title="首页">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <userModel:UserDataModel
+                x:Key="userData"
+                x:Name="userData"/>
+        </ResourceDictionary>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="SubtitleStyle">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout>
+        <ListView x:Name="MenuItemsListView"
+              SeparatorVisibility="None"
+              HasUnevenRows="true"
+                  x:FieldModifier="public">
+
+            <ListView.Header>
+                <Grid BackgroundColor="#03A9F4" 
+                      BindingContext="{StaticResource userData}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="80"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="10"/>
+                    </Grid.RowDefinitions>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="2"
+                        Text="{Binding LoginName}"
+                        Style="{StaticResource SubtitleStyle}" />
+                </Grid>
+            </ListView.Header>
+
+            <ListView.ItemsSource>
+                <x:Array Type="{x:Type local:HomeMasterDetailPageMenuItem}">
+                    <pages:HomeMasterDetailPageMenuItem Title="首页" IconSource="home.png" TargetType="{x:Type local:NewInfo}" />
+                    <pages:HomeMasterDetailPageMenuItem Title="发布" IconSource="fasong.png" TargetType="{x:Type local:SendNewInfo}" />
+                    <pages:HomeMasterDetailPageMenuItem Title="个人中心" IconSource="gerenzhongxin.png" TargetType="{x:Type user:UserTabbedPage}" />
+                </x:Array>
+            </ListView.ItemsSource>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="15,10" HorizontalOptions="FillAndExpand">
+                            <Label VerticalOptions="FillAndExpand" 
+                    VerticalTextAlignment="Center" 
+                    Text="{Binding Title}" 
+                    FontSize="24"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

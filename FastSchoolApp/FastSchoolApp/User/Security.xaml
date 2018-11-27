@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FastSchoolApp.User.Security">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label 
+                Text="密码修改"
+            VerticalOptions="Center" 
+                HorizontalOptions="CenterAndExpand"/>
+            <Grid HorizontalOptions="FillAndExpand" 
+                  VerticalOptions="FillAndExpand"  Padding="15">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Entry Grid.ColumnSpan="2"
+                Placeholder="请输入原密码"
+                       IsPassword="True"
+                x:Name="txtOldPwd" />
+                <Entry Grid.Row="1" 
+                       Grid.ColumnSpan="2"
+                       IsPassword="True"
+                   Placeholder="请输入新密码"
+                   x:Name="txtNewPwd" />
+
+                <Entry Grid.Row="2" 
+                       Grid.ColumnSpan="2"
+                       IsPassword="True"
+                   Placeholder="请再次输入新密码" 
+        x:Name="txtNewLastPwd" />
+            </Grid>
+            <Button 
+                x:Name="eitPwdBtn"
+                Text="提交修改" 
+                Style="{StaticResource ButtonStyle}"
+                Clicked="eitPwdBtn_Clicked"
+                BackgroundColor="red" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

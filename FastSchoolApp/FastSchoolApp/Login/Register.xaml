@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FastSchoolApp.Login.Register" 
+             Title="注册"  Opacity="0.8"
+             BackgroundImage="@drawable/logbg.jpg">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid 
+                HorizontalOptions="CenterAndExpand" 
+                VerticalOptions="CenterAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Label 
+                   Text="请填写注册信息"
+                    HorizontalOptions="Center"
+                  TextColor="#000" 
+                   FontSize="30"
+                FontAttributes="Bold" 
+                   FontFamily="宋体"
+                    />
+                <Entry  
+                   Grid.Row="1" 
+                   Placeholder="请输入用户名" 
+                   x:Name="userShowName"/>
+                <Entry  
+                   Grid.Row="2" 
+                   Placeholder="请输入密码" 
+                   x:Name="userPwd"
+                   IsPassword="True" />
+                <Entry 
+                   Grid.Row="3"  
+                   Placeholder="请再次输入密码"
+                   x:Name="userLastPwd" 
+                   IsPassword="True" />
+                <Entry
+                   Grid.Row="4" 
+                   Placeholder="请输入您的姓名" 
+                   x:Name="userName" 
+                   Keyboard="Text" />
+                <Entry  
+                   Grid.Row="5" 
+                   Placeholder="请输入您的学号"
+                   x:Name="userNumber" 
+                   Keyboard="Numeric" />
+                <Entry  
+                   Grid.Row="6" 
+                   Placeholder="请输入手机号" 
+                   x:Name="userPhone" 
+                   Keyboard="Telephone" />
+
+            </Grid>
+            <Button 
+                Margin="10"
+                    Text="提交注册" 
+                    TextColor="#FFF" 
+                    BackgroundColor="#1E90FF" 
+                x:Name="submitBtn" 
+                Clicked="submitBtn_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

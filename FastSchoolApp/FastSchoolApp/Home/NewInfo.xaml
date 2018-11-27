@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FastSchoolApp.Home.NewInfo" Title="首页">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="注销" 
+                     Clicked="outLogin_Clicked" 
+                     Order="Default" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="{x:Type Label}">
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <BoxView BackgroundColor="#D3D3D3" 
+                     Opacity="0.5"
+                     x:Name="boxViewRefreshing"
+                     IsVisible="False"/>
+            <StackLayout>
+                <ListView x:Name="newInfoList"  
+                      ItemTapped="newInfoList_ItemTapped"
+                      ItemSelected="newInfoList_ItemSelected"
+                      IsPullToRefreshEnabled="True"
+                      Refreshing="newInfoList_Refreshing">
+                    <ListView.RowHeight>
+                        <OnPlatform x:TypeArguments="x:Int32" Android="50" />
+                    </ListView.RowHeight>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding UserName}"
+                                   TextColor="Black" FontSize="16" />
+                                    <Label Text="{Binding PickUpAddress}" 
+                                   TextColor="Gray" FontSize="12"
+                                       HorizontalOptions="Start" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FastSchoolApp.User.UserOrder">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="orderList" 
+                      ItemSelected="orderList_ItemSelected"
+                      IsPullToRefreshEnabled="True"
+                       ItemTapped="orderList_ItemTapped"
+                      Refreshing="orderList_Refreshing" >
+                <ListView.RowHeight>
+                    <OnPlatform x:TypeArguments="x:Int32" Android="65" />
+                </ListView.RowHeight>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical">
+                                <Label Text="{ Binding OrderNumber}" />
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding SendUserName}"
+                                           HorizontalOptions="StartAndExpand" />
+                                    <Label Text="{Binding OrderState}" HorizontalOptions="End" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                        <!--<TextCell Text="{ Binding OrderNumber}" Detail="{Binding OrderState}" />-->
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

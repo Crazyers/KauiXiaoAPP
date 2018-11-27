@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:FastSchoolApp.ViewModel"
+             x:Class="FastSchoolApp.User.UserData">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <model:UserDataModel x:Key="userData" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="个人资料修改"
+                VerticalOptions="Center" 
+                HorizontalOptions="CenterAndExpand"/>
+            <Grid HorizontalOptions="FillAndExpand" 
+                  VerticalOptions="FillAndExpand" 
+                  Padding="15"
+                  x:Name="mainGrid"
+                  BindingContext="{StaticResource userData}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Text="用户名：" Grid.Column="0" Grid.Row="0" />
+                <Entry Text="{Binding UserName}"
+                       x:Name="txtShowName"
+                       IsEnabled="False"                       
+                       Grid.Column="1"
+                       Grid.Row="0"/>
+
+                <Label Text="姓名："
+                       Grid.Column="0" 
+                       Grid.Row="1" />
+                <Entry Text="{Binding UserFullName,Mode=OneWay}"
+                       Placeholder="{Binding UserFullName}"
+                       x:Name="txtUserName"
+                       Keyboard="Text"
+                       Grid.Column="1"
+                       Grid.Row="1"/>
+
+                <Label Text="学号：" 
+                       Grid.Column="0" 
+                       Grid.Row="2" />
+                <Entry Text="{Binding UserNumber,Mode=OneWay}"
+                      Placeholder="{Binding UserNumber}"
+                       x:Name="txtUserNumber" 
+                       Keyboard="Numeric" 
+                       Grid.Column="1" 
+                       Grid.Row="2" />
+
+                <Label Text="手机号："
+                       Grid.Column="0" 
+                       Grid.Row="3" />
+                <Entry Text="{Binding UserPhone,Mode=OneWay}" 
+                       Placeholder="{Binding UserPhone}"
+                       x:Name="txtUserPhone"
+                       Keyboard="Telephone"
+                       Grid.Column="1" 
+                       Grid.Row="3"  />
+            </Grid>
+
+            <Button Text="提交审核" 
+                    Style="{StaticResource ButtonStyle}"
+                    x:Name="submitBtn" 
+                    Clicked="submitBtn_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

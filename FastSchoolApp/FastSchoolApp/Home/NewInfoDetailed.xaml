@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FastSchoolApp.Home.NewInfoDetailed"
+             xmlns:model="clr-namespace:FastSchoolApp.ViewModel">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <model:NewInfoDetailedModel 
+                x:Key="newInfoDetailedModel"
+                x:Name="newInfoDetailedModel" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid Margin="10"
+                HorizontalOptions="FillAndExpand"
+                  VerticalOptions="FillAndExpand" 
+                  Padding="15"
+                  BindingContext="{StaticResource newInfoDetailedModel}">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Label Text="快递类型：" />
+                <Label Text="{Binding EnumExpressType}" 
+                       x:Name="labExpressType"
+                       Grid.Column="1" />
+
+                <Label Text="悬赏金额："
+                       Grid.Column="0" 
+                       Grid.Row="1" />
+                <Label Text="{Binding Ponus}"
+                       Grid.Column="1" 
+                       Grid.Row="1" />
+
+                <Label Text="取货地点："
+                       Grid.Column="0"
+                       Grid.Row="2" />
+                <Label Text="{Binding PickUpAddress}" 
+                       Grid.Column="1"
+                       Grid.Row="2"/>
+
+                <Label Text="配送地点："
+                       Grid.Column="0"
+                       Grid.Row="3" />
+                <Label Text="{Binding Sendaddress}" 
+                       Grid.Column="1"
+                       Grid.Row="3"/>
+
+                <Label Text="备注："
+                       Grid.Column="0"
+                       Grid.Row="4" />
+                <Label Text="{Binding Remarks}" 
+                       Grid.Column="1"
+                       Grid.Row="4"/>
+            </Grid>
+            <Button 
+                Text="确定接单"
+                x:Name="Purchase" 
+                Clicked="Purchase_Clicked"
+                Style="{StaticResource ButtonStyle}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:loca="clr-namespace:FastSchoolApp.ViewModel"
+             x:Class="FastSchoolApp.Home.AffirmOrder" Title="下单成功">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <loca:AffirmOrderModel x:Name="affirmOrder" 
+                                   x:Key="affirmOrder" />
+            <Style TargetType="Label">
+                <!--<Setter Property="FontSize" Value="18"/>-->
+                <!--<Setter Property="Margin" Value="0,20,0,0"></Setter>-->
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout x:Name="MainStackLayout">
+            <Grid  HorizontalOptions="FillAndExpand"
+                  VerticalOptions="FillAndExpand" 
+                  Padding="15"
+                BindingContext="{x:Reference Name=affirmOrder}">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Label Text="快递类型：" />
+                <Label Text="{Binding EnumExpressType}" 
+                       Grid.Column="1" />
+
+                <Label Text="取货码："
+                       Grid.Row="1"/>
+                <Label Grid.Row="1"
+                       Grid.Column="1"
+                       Text="{Binding Path=PickUpCode}" />
+
+                <Label Text="取货地点："
+                       Grid.Row="2"/>
+                <Label Grid.Row="2"
+                       Grid.Column="1"
+                       Text="{Binding PickUpAddress}"/>
+
+                <Label Text="配送地点："
+                       Grid.Row="3"/>
+                <Label Grid.Row="3"
+                       Grid.Column="1"
+                       Text="{Binding Sendaddress}"/>
+
+                <Label Text="悬赏金额："
+                       Grid.Row="4"/>
+                <Label Grid.Row="4"
+                         Grid.Column="1"
+                       Text="{Binding Ponus}"/>
+
+                <Label Text="备注："
+                       Grid.Row="5" />
+                <Label Text="{Binding Remarks}" 
+                       Grid.Column="1"
+                       Grid.Row="5"/>
+
+                <!--<Label Text="订单状态："
+                       Grid.Row="6"/>-->
+                <Label TextColor="Red"
+                       FontSize="18"
+                       HorizontalOptions="Center"
+                    Text="订单已提交..."
+                    Grid.Row="6"
+                    Grid.ColumnSpan="2" />
+
+                <!--6-->
+            </Grid>
+
+            <Button x:Name="myOrder" 
+                    Text="我的订单" 
+                    Clicked="myOrder_Clicked" 
+                   Style="{StaticResource ButtonStyle}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FastSchoolApp"
+             x:Class="FastSchoolApp.MainPage" Title="登录">
+
+    <StackLayout>
+        <!-- Place new controls here -->
+        <!--<Label Text="欢迎登录快校吧" 
+           HorizontalOptions="CenterAndExpand"
+           VerticalOptions="CenterAndExpand" />
+        <Entry Placeholder="请输入用户名" x:Name="userName" />
+        <Entry Placeholder="请输入密码" x:Name="userPwd" IsPassword="True" />
+        <Button Text="登录" x:Name="userLoginBtn" Clicked="userLoginBtn_Clicked" />
+        <Button Text="注册" x:Name="userRegister" Clicked="userRegister_Clicked" />-->
+    </StackLayout>
+
+</ContentPage>

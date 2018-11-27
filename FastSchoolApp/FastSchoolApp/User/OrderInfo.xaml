@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:FastSchoolApp.ViewModel"
+             x:Class="FastSchoolApp.User.OrderInfo">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <model:UserOrderInfoModel x:Key="userOrderInfo" 
+                                      x:Name="userOrderInfo" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout >
+            <!--导航条开始-->
+            <Grid BackgroundColor="#1C8DE5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="55"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="55"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Source="@drawable/xiaoyuhao"
+                   WidthRequest="20" 
+                   HeightRequest="20"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   Grid.Row="0" 
+                       Grid.Column="0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" 
+                                              Tapped="TapGestureRecognizer_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Text="订单详细" 
+                       TextColor="White"
+                   HorizontalOptions="StartAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   Grid.Row="0" 
+                       Grid.Column="1"/>
+            </Grid>
+            <!--导航条结束-->
+
+            <!--信息展示开始-->
+            
+            <!--设置绑定就出错-->
+            <!--BindingContext="{x:StaticResource userOrderInfo}"-->
+            <StackLayout  >
+                <StackLayout HorizontalOptions="StartAndExpand">
+                    <Label Text="订单号："  />
+                    <Label Text="{Binding OrderNumber}" />
+
+                    <Label Text="订单状态："/>
+                    <Label Text="{Binding OrderState}" />
+
+                    <Label Text="用户：" />
+                    <Label Text="{Binding SendUserName}" />
+
+                    <Label Text="配送地点：" />
+                    <Label Text="{Binding Sendaddress}" />
+
+                    <Label Text="取货码：" />
+                    <Label Text="{Binding PickUpCode}" />
+
+                    <Label Text="赏金：" />
+                    <Label Text="{Binding Ponus}" />
+
+                    <Label Text="快递类型：" />
+                    <Label Text="{Binding EnumExpressType}" />
+
+                    <Label Text="备注：" />
+                    <Label Text="{Binding Remarks}"/>
+                </StackLayout>
+
+                <Button 
+                    Text="订单已完成"
+                    Style="{StaticResource ButtonStyle}"/>
+            </StackLayout>
+
+
+            <!--<StackLayout BindingContext="{StaticResource userOrderInfo}" >
+
+                <Label Text="订单号：" />
+                <Label Text="{Binding OrderNumber}" />
+
+                <Label Text="订单状态："/>
+                <Label Text="{Binding OrderState}" />
+
+                <Label Text="用户：" />
+                <Label Text="{Binding SendUserName}" />
+
+                <Label Text="配送地点：" />
+                <Label Text="{Binding Sendaddress}" />
+
+                <Label Text="取货码：" />
+                <Label Text="{Binding PickUpCode}" />
+
+                <Label Text="赏金：" />
+                <Label Text="{Binding Ponus}" />
+
+                <Label Text="快递类型：" />
+                <Label Text="{Binding EnumExpressType}" />
+
+                <Label Text="备注：" />
+                <Label Text="{Binding Remarks}"/>
+
+
+                --><!--<Grid Margin="10"
+                HorizontalOptions="FillAndExpand"
+                  VerticalOptions="FillAndExpand" 
+                  Padding="15"
+                  BindingContext="{StaticResource userOrderModel}">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Label Text="订单号：" />
+                <Label Text="{Binding OrderNumber}" 
+                       x:Name="labOrderNumber"
+                       Grid.Column="1" />
+
+                <Label Text="订单状态："
+                       Grid.Column="0" 
+                       Grid.Row="1" />
+                <Label Text="{Binding OrderState}"
+                       Grid.Column="1" 
+                       Grid.Row="1" />
+
+                <Label Text="用户："
+                       Grid.Column="0"
+                       Grid.Row="2" />
+                <Label Text="{Binding SendUserName}" 
+                       Grid.Column="1"
+                       Grid.Row="2"/>
+
+                <Label Text="配送地点："
+                       Grid.Column="0"
+                       Grid.Row="3" />
+                <Label Text="{Binding Sendaddress}" 
+                       Grid.Column="1"
+                       Grid.Row="3"/>
+
+                <Label Text="取货码："
+                       Grid.Column="0"
+                       Grid.Row="4" />
+                <Label Text="{Binding PickUpCode}" 
+                       Grid.Column="1"
+                       Grid.Row="4"/>
+
+                <Label Text="赏金："
+                       Grid.Column="0"
+                       Grid.Row="5" />
+                <Label Text="{Binding Ponus}" 
+                       Grid.Column="1"
+                       Grid.Row="5"/>
+
+                <Label Text="赏金："
+                       Grid.Column="0"
+                       Grid.Row="6" />
+                <Label Text="{Binding Ponus}" 
+                       Grid.Column="1"
+                       Grid.Row="6"/>
+
+                <Label Text="快递类型："
+                       Grid.Column="0"
+                       Grid.Row="7" />
+                <Label Text="{Binding EnumExpressType}" 
+                       Grid.Column="1"
+                       Grid.Row="7"/>
+
+                <Label Text="备注："
+                       Grid.Column="0"
+                       Grid.Row="8" />
+                <Label Text="{Binding Remarks}" 
+                       Grid.Column="1"
+                       Grid.Row="8"/>
+            </Grid>--><!--
+
+                <Button 
+                    Text="确定接单"
+                    Style="{StaticResource ButtonStyle}"/>
+
+                --><!--信息展示结束--><!--
+            </StackLayout>-->
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

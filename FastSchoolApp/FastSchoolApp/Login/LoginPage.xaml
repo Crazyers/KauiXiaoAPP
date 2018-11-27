@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FastSchoolApp.Login.LoginPage" Title="登录" 
+             Opacity="0.8"
+             BackgroundImage="@drawable/logbg.jpg">
+
+    <ContentPage.Resources>
+        <Style x:Key="btnStyle" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="#1E90FF" />
+            <Setter Property="TextColor"  Value="#FFF" />
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+
+        <StackLayout Margin="20,0,20,0">
+            <Label 
+                Grid.ColumnSpan="2"
+                   Margin="50" 
+                Text="快校吧" 
+                   HorizontalOptions="Center"
+                   TextColor="#000" 
+                   FontSize="30"
+                   FontAttributes="Bold" 
+                   FontFamily="宋体" 
+                   StyleClass="logo"/>
+            <StackLayout Orientation="Horizontal">
+                <Image Source="@drawable/icon_hulianwang.png" HorizontalOptions="Start" WidthRequest="45" HeightRequest="45"/>
+                <Label Text="快校吧" 
+                       TextColor="#000"
+                       VerticalTextAlignment="Center"
+                       FontSize="16"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Vertical" Margin="0,20,0,0">
+                <Entry Placeholder="请输入用户名" TextColor="#000" x:Name="userName" />
+                <Entry Placeholder="请输入密码" TextColor="#000" x:Name="userPwd" IsPassword="True" />
+            </StackLayout>
+
+            <Button x:Name="userLoginBtn" Text="登录" BackgroundColor="#1E90FF" FontSize="22" TextColor="White" Clicked="userLoginBtn_Clicked" ></Button>
+            <AbsoluteLayout>
+                <Button  Text="忘记密码?"  AbsoluteLayout.LayoutBounds="0,.5,165,50" AbsoluteLayout.LayoutFlags="PositionProportional" BackgroundColor="Transparent" TextColor="Blue" FontSize="16"></Button>
+                <Button x:Name="userRegister" Text="新用户注册"  Clicked="userRegister_Clicked" AbsoluteLayout.LayoutBounds="1,.5,165,50" AbsoluteLayout.LayoutFlags="PositionProportional" BackgroundColor="Transparent" TextColor="Blue" FontSize="16"></Button>
+            </AbsoluteLayout>
+            <!--<Button Text="服务条款" HorizontalOptions="Center" TextColor="Blue" Margin="0,140,0,0" BackgroundColor="Transparent"></Button>-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

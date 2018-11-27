@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FastSchoolApp.User"
+             x:Class="FastSchoolApp.User.UserTabbedPage"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.BarItemColor="#080808"
+            android:TabbedPage.BarSelectedItemColor="Black">
+    <!--Pages can be added as references or inline-->
+    <!--<ContentPage Title="个人资料" />
+    <ContentPage Title="我的订单" />
+    <ContentPage Title="安全中心" />-->
+    <local:UserData Title="个人资料" />
+    <local:UserOrder Title="我的订单" />
+    <local:Security Title="安全中心" />
+
+</TabbedPage>
